@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Naming Ceremony Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff7f0, #fff0f7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .card {
+    background: #fffaf5;
+    border-radius: 15px;
+    padding: 5vw;
+    max-width: 95vw;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  h1 { font-family: 'Playfair Display', serif; font-size: 8vw; color: #b56d50; margin-bottom: 2vw;}
+  p { font-size: 4vw; color: #5a4d47; margin: 1vw 0;}
+  .btn { margin-top: 3vw; padding: 2vw 5vw; background: #b56d50; color: #fff; border: none; border-radius: 10px; cursor: pointer; font-size: 4vw; font-weight: 600; transition:0.3s;}
+  .btn:hover:not(:disabled) { background: #a55c40; }
+  .btn:disabled { background: #ccc; cursor: not-allowed; }
+  .baby-photos { display:flex; justify-content:center; gap:3vw; margin-top:3vw; flex-wrap: wrap; }
+  .baby-photos img { width:28vw; max-width:120px; height:auto; border-radius:50%; box-shadow:0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s; }
+  .baby-photos img:hover { transform: scale(1.1); }
+  .timer { margin-top:2vw; }
+  #baby-name { display:none; color:#b56d50; font-family:'Playfair Display', serif; font-size:6vw; margin-top:2vw; }
+  iframe { width:100%; height:30vw; border:0; border-radius:10px; margin-top:3vw; }
+  .balloon { position:absolute; bottom:-15vw; width:10vw; height:13vw; border-radius:50% 50% 45% 55%; animation: floatUp 10s linear infinite; opacity:0.7; }
+  .balloon::after { content:""; position:absolute; bottom:-3vw; left:50%; transform:translateX(-50%); width:0.3vw; height:5vw; background:#555;}
+  @keyframes floatUp {0%{transform:translateY(0) scale(1);opacity:0.8;}100%{transform:translateY(-120vh) scale(1.2);opacity:0;}}
+  .confetti { position: fixed; width: 3vw; height: 3vw; top:-3vw; border-radius:0.5vw; animation: fall 3s linear forwards; }
+  @keyframes fall { to { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+  .music-btn { position: fixed; top:4vw; right:4vw; background:#b56d50; color:#fff; border:none; border-radius:50%; width:12vw; height:12vw; font-size:6vw; cursor:pointer; box-shadow:0 2vw 5vw rgba(0,0,0,0.2); z-index:3;}
+  @media(min-width:768px){
+    h1 { font-size: 28px; }
+    p { font-size: 16px; }
+    .btn { font-size: 16px; padding:12px 24px; border-radius: 8px; }
+    .baby-photos img { max-width:120px; }
+    iframe { height: 250px; border-radius: 12px; margin-top: 15px; }
+    #baby-name { font-size: 32px; }
+    .music-btn { width:50px; height:50px; font-size:18px; top:20px; right:20px; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Naming Ceremony</h1>
+  <p>We joyfully invite you to celebrate the naming of our little prince 💖</p>
+  <p><strong>Date:</strong> 28th September 2025</p>
+  <p><strong>Time:</strong> 09:30 AM</p>
+  <p><strong>Venue:</strong> jnaeshwari temple</p>
+
+  <!-- Countdown Timer -->
+  <div class="timer">
+    <p><strong>Time left until Name Reveal:</strong></p>
+    <h2 id="countdown"></h2>
+  </div>
+
+  <!-- Name Reveal -->
+  <div class="name-reveal">
+    <p><strong>Baby’s Name:</strong></p>
+    <h2 id="baby-name"></h2>
+    <button class="btn" id="reveal-btn" onclick="revealName()" disabled>Reveal Name 🎀</button>
+  </div>
+
+  <!-- Embedded Map -->
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.4299111598552!2d78.0092514735921!3d13.135260211272053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3badfd00641b1d0f%3A0xa3df00162c646272!2zR25hbmVzaHdhcmkgaGluZHUgdGVtcGxlIPCflYnvuI8!5e0!3m2!1sen!2sin!4v1758558971750!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <!-- Baby Photos -->
+  <div class="baby-photos">
+    <img src="IMG_5669.PNG" alt="Baby 1">
+    <img src="IMG_5670.PNG" alt="Baby 2">
+    <img src="IMG_5671.PNG" alt="Baby 3">
+  </div>
+
+
+</div>
+
+<!-- Balloons -->
+<div class="balloon" style="left:10%; background:#ffc1c1; animation-duration:10s;"></div>
+<div class="balloon" style="left:35%; background:#ffe1c1; animation-duration:12s;"></div>
+<div class="balloon" style="left:60%; background:#c1ffc9; animation-duration:14s;"></div>
+<div class="balloon" style="left:85%; background:#c1d4ff; animation-duration:9s;"></div>
+
+<!-- Background Music -->
+<audio id="bg-music" loop autoplay>
+  <source src="https://www.bensound.com/bensound-music/bensound-littleidea.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="music-btn">🔊</button>
+
+<script>
+const countdownEl = document.getElementById("countdown");
+const babyName = document.getElementById("baby-name");
+const revealBtn = document.getElementById("reveal-btn");
+
+// Dates
+const eventDate = new Date("September 28, 2025 11:30:00").getTime();
+const revealDate = new Date("September 23, 2025 11:30:00").getTime(); // 5 days before
+
+// Countdown Timer
+setInterval(()=>{
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+  if(distance<0){
+    countdownEl.innerHTML="🎉 It's Time! 🎉";
+    revealName();
+    return;
+  }
+  const d = Math.floor(distance/(1000*60*60*24));
+  const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((distance%(1000*60*60))/(1000*60));
+  const s = Math.floor((distance%(1000*60))/1000);
+  countdownEl.innerHTML=`${d}d ${h}h ${m}m ${s}s`;
+},1000);
+
+// Enable reveal button 5 days before
+function checkRevealButton(){
+  if(new Date().getTime()>=revealDate){
+    revealBtn.disabled=false;
+  }
+}
+checkRevealButton();
+setInterval(checkRevealButton,60000);
+
+// Reveal Name
+function revealName(){
+  babyName.style.display="block";
+  babyName.style.opacity=0;
+  babyName.style.transition="opacity 1.5s ease-in-out";
+  setTimeout(()=>{ babyName.style.opacity=1; celebrate(); },50);
+}
+
+// Confetti
+function celebrate(){
+  for(let i=0;i<40;i++){
+    let conf=document.createElement("div");
+    conf.className="confetti";
+    conf.style.left=Math.random()*window.innerWidth+"px";
+    conf.style.background=`hsl(${Math.random()*360},70%,60%)`;
+    conf.style.animationDuration=(2+Math.random()*2)+"s";
+    document.body.appendChild(conf);
+    setTimeout(()=>conf.remove(),3000);
+  }
+}
+
+// Music toggle
+const music=document.getElementById("bg-music");
+const musicBtn=document.getElementById("music-btn");
+musicBtn.addEventListener("click",()=>{
+  if(music.paused){music.play(); musicBtn.textContent="🔊";}
+  else{music.pause(); musicBtn.textContent="🔇";}
+});
+</script>
+</body>
+</html>
